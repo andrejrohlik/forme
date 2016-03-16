@@ -9,8 +9,7 @@
 <h1>Prvi</h1>
 
 <p>
-
-<form method="post">
+<form method="post" action="rezultat.php">
     Ime:<br>
     <input type="text" name="ime"><br>
     Prezime:<br>
@@ -24,29 +23,6 @@
     </p>
     <input type="submit" value="Pošalji!">
 </form>
-
-<?php
-
-echo('Vaše ime je: ' . htmlspecialchars($_POST['ime']) . '<br>');
-echo('Vaše prezime je: ' . htmlspecialchars($_POST['prezime']) . '<br>');
-echo('Vaš spol je: ' . htmlspecialchars($_POST['spol']). '<br>');
-
-if ($_POST['spol'] == 'M')
-{
-    echo('<p class="musko">' . 'Vi ste pravi muškarac!' . '</p>');
-}
-
-elseif ($_POST['spol'] == 'Ž')
-{
-    echo('<p class="zensko">' . 'Vi ste prava žena!' . '</p>');
-}
-else
-{
-    echo('A što ste onda!?');
-}
-
-?>
-
 </p>
 
 </body>
