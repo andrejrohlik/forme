@@ -12,10 +12,22 @@
 <p>
 <?php
 
-if($result = $conn->query("SELECT * FROM students")){
+$conn->query("INSERT INTO students (name, surname) VALUES ('" . $_POST['ime'] ."','" . $_POST['prezime'] . "');");
+$results = $conn->query("SELECT * FROM students ORDER BY Surname ;");
+if($results){
+    while ($row = $results->fetch_object()){
+        //print_r($row);
+        echo('Ime: ' . $row->Name . ' ' . $row->Surname . '<br>');
+
+    }
+    $results->close();
+    $conn->next_result();
+}
+
+/*if($result = $conn->query("SELECT * FROM students")){
     printf("Select returned %d rows.\n", $result->num_rows);
     $result->close();
-}
+}*/
 
 echo('Vaše ime je: ' . htmlspecialchars($_POST['ime']) . '<br>');
 echo('Vaše prezime je: ' . htmlspecialchars($_POST['prezime']) . '<br>');
